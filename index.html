@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment on FETCH </title>
+</head>
+<body>
+    <h1 style="text-align: center;">Fashion Trend's</h1>
+    <script>
+        
+        document.body.style.width = Float64Array;
+        document.body.style.backgroundColor = "lightgreen";
+            fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+                    .then(json=> {
+                        const products = json;
+
+        for(let i =0; i<=20 ;i++){
+            var guru =document.createElement('div');
+
+            guru.className ='Teja';
+            guru.style.width = "auto";
+            guru.style.border = "1px solid blue";
+            guru.style.borderRadius = "12px";
+            guru.style.margin ="auto";
+            guru.style.display = "flex";
+            guru.style.columnGap = "15px";
+            guru.style.marginBottom = "10px";
+            guru.style.marginLeft = "100px";
+
+            document.body.appendChild(guru);
+
+            var inSide = document.createElement('div');
+            inSide.className = 'guru-img';
+            inSide.style.alignItems = "center";
+
+            guru.appendChild(inSide);
+
+            var txtSide = document.createElement('div');
+            txtSide.className ='guru-body';
+            
+            guru.appendChild(txtSide);
+
+            var title =document.createElement('h2');
+
+            title.textContent = products[i].title;
+            title.style.fontFamily ="sans-serif";
+
+            txtSide.appendChild(title);
+            
+            var price = document.createElement('p');
+
+            price.textContent = '$' + products[i].price;
+            price.style.fontWeight = "bold";
+            price.style.fontSize = "18px";
+            price.style.margin = "8px 0";
+            txtSide.appendChild(price);
+
+            var category = document.createElement('p');
+
+            category.textContent = 'Category : ' + products[i].category;
+            category.style.fontFamily = "Cursive";
+            category.style.margin = "0";
+            txtSide.appendChild(category);
+
+            var description = document.createElement('p');
+
+            description.textContent = products[i].description;
+            description.style.fontFamily ="sans-serif";
+            txtSide.appendChild(description);
+
+            var rating = document.createElement('p');
+
+                    rating.textContent = 'Rating : ' + products[i].rating.rate + ' / 5';
+                    rating.style.fontFamily = "sans-serif";
+                    rating.style.color = " #ff6666";
+                    txtSide.appendChild(rating);
+
+                    var buton = document.createElement('p');
+
+                    buton.textContent = 'Buy Now';
+                    buton.style.cursor = "pointer";
+                    buton.style.color = "white";
+                    buton.style.backgroundColor = "black";
+                    buton.style.width = "100px";
+                    buton.style.textAlign = "center";
+                    buton.style.fontWeight = "400";
+                    buton.style.padding = "6px 12px";
+                    buton.style.fontSize = "16px";
+                    buton.style.borderRadius = ".25rem";
+                    buton.style.border = "1px solid transparent";
+                    buton.style.lineHeight = "1.5";
+                    txtSide.appendChild(buton);
+
+
+                    
+
+
+                    var picture = document.createElement('img');
+
+                    picture.src = products[i].image;
+                    picture.style.width = "200px";
+                    picture.style.height = "200px";
+                    picture.style.padding = "10px";
+
+                    inSide.appendChild(picture);
+
+
+            
+        }
+    })
+        
+    </script>
+</body>
+</html>
